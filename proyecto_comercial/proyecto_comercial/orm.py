@@ -2,7 +2,7 @@ from django.db.models import Q
 
 from proyecto_comercial.wsgi import get_wsgi_application
 print("python en django")
-from aplicaciones.core.models import Linea
+from aplicaciones.core.models import Linea, Grupo
 # Se presentan todos los atributos si no se especifican los campos
 #Insertar registros
 
@@ -37,6 +37,11 @@ print("-"*50)
 # lin = Linea.objects.filter(id__gt=12)
 # lin = Linea.objects.filter(descripcion__icontains="pas")
 
-lin = Linea.objects.filter(Q(descripcion__istartswith="pas") | Q(id=7))
-
-print(lin.values("id","descripcion"))
+# lin = Linea.objects.filter(Q(descripcion__istartswith="pas") | Q(id=7))
+#
+# print(lin.values("id","descripcion"))
+#crea el campo con la id
+# lin = Linea.objects.get(id=1)
+# gru = Grupo.objects.create(descripcion="Gorras",linea__id=1)
+# print(gru)
+# print(Grupo.objects.values())

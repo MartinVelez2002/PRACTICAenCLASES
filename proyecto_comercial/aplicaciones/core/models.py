@@ -16,7 +16,7 @@ class Linea(models.Model):
         return "{}".format(self.descripcion)
 
 class Grupo(models.Model):
-    linea= models.ManyToManyField(Linea)
+    linea= models.ForeignKey(Linea, on_delete=models.PROTECT, null=True,blank=True)
     descripcion = models.CharField("Grupo",max_length=100, unique=True)
     image = models.FileField(verbose_name = "Foto",upload_to="core/grupo",blank=True,null=True)
     estado=models.BooleanField(default=True)
